@@ -4,11 +4,14 @@ const nameInputRef = document.querySelector("#name-input");
 
 const nameOutputRef = document.querySelector("#name-output");
 
-// 2. Добавляем слушатель на поле ввода и замену имени пользователя, в соответствии со строкой в поле ввода.ы
+//  2. Функция замены имени пользователя, в соответствии со строкой в поле ввода.
 
-nameInputRef.addEventListener("input", (event) => {
+function onInputChange(event) {
   if (event.currentTarget.value === "") {
     return (nameOutputRef.textContent = "Anonymous");
   }
   return (nameOutputRef.textContent = event.currentTarget.value);
-});
+}
+
+// 3. Добавляем слушатель на поле ввода и вызываем коллбэк-функцию.
+nameInputRef.addEventListener("input", onInputChange);

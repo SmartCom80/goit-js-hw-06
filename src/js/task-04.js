@@ -10,7 +10,7 @@ const btnDecrementRef = document.querySelector('[data-action="decrement"]');
 const counterValueRef = document.querySelector("#value");
 
 // 3. В колбек-функции обновляем текущее значение переменной counterValue и изменяем отображение значения счетчика на странице.
-function changeCounter(event) {
+function onchangeCounter(event) {
   counterValue = Number(counterValueRef.textContent);
 
   event.target.dataset.action === "decrement"
@@ -22,5 +22,5 @@ function changeCounter(event) {
 
 // 4. Добавляем слушатели кликов на кнопках счетчика.
 
-btnIncrementRef.addEventListener("click", changeCounter);
-btnDecrementRef.addEventListener("click", changeCounter);
+btnIncrementRef.addEventListener("click", onchangeCounter);
+btnDecrementRef.addEventListener("click", onchangeCounter);
