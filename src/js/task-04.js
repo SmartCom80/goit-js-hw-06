@@ -8,16 +8,14 @@ const btnIncrementRef = document.querySelector('[data-action="increment"]');
 const btnDecrementRef = document.querySelector('[data-action="decrement"]');
 
 const counterValueRef = document.querySelector("#value");
-console.log("counterValueRef.textContent :>> ", counterValueRef.textContent);
 
 // 3. В колбек-функции обновляем текущее значение переменной counterValue и изменяем отображение значения счетчика на странице.
 function changeCounter(event) {
   counterValue = Number(counterValueRef.textContent);
-  if (event.target.textContent === "-1") {
-    counterValue -= 1;
-  } else {
-    counterValue += 1;
-  }
+
+  event.target.dataset.action === "decrement"
+    ? (counterValue -= 1)
+    : (counterValue += 1);
 
   counterValueRef.textContent = counterValue;
 }
